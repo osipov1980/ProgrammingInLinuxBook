@@ -1,18 +1,15 @@
-# Makefile for printup5
+# Makefile for printup6
 
 CC=gcc
+CCFLAGS=-Wall
 CLEAN=rm -f
 PROGRAM_NAME=printup
+OBJECT_FILES=*.o
+SOURCE_FILES=print_up.c main.c
 
-$(PROGRAM_NAME): print_up.o main.o
-	$(CC) -o $@ $^
-
-print_up.o: print_up.c
-	$(CC) -c $^
-
-main.o: main.c
-	$(CC) -c $^
-
+$(PROGRAM_NAME): $(OBJECT_FILES)
+	$(CC) $(CCFLAGS) -o $@ $^
+$(OBJECT_FILES): $(SOURCE_FILES)
+	$(CC) $(CCFLAGS) -c $^
 clean:
-	$(CLEAN) *.o
-	$(CLEAN) $(PROGRAM_NAME)
+	$(CLEAN) *.o $(PROGRAM_NAME)
