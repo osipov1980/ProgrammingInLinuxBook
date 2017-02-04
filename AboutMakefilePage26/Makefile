@@ -1,19 +1,17 @@
-# Makefile for printup4
+# Makefile for printup5
 
 CC=gcc
-CLEAN=some_value
+CLEAN=rm -f
 PROGRAM_NAME=printup
 
 $(PROGRAM_NAME): print_up.o main.o
-	$(CC) -o $(PROGRAM_NAME) print_up.o main.o
+	$(CC) -o $@ $^
 
 print_up.o: print_up.c
-	$(CC) -c print_up.c
+	$(CC) -c $^
 
 main.o: main.c
-	$(CC) -c main.c
-
-CLEAN=rm -f
+	$(CC) -c $^
 
 clean:
 	$(CLEAN) *.o
