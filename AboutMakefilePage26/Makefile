@@ -1,7 +1,9 @@
-# Makefile for printup2
+# Makefile for printup3
 
 CC=gcc
-CLEAN=rm -f
+CLEAN=rm
+CLEAN_FLAGS=-f
+CLEAN_COMMAND=$(CLEAN) $(CLEAN_FLAGS)
 PROGRAM_NAME=printup
 
 $(PROGRAM_NAME): print_up.o main.o
@@ -14,5 +16,5 @@ main.o: main.c
 	$(CC) -c main.c
 
 clean:
-	$(CLEAN) *.o
-	$(CLEAN) $(PROGRAM_NAME)
+	$(CLEAN_COMMAND) *.o
+	$(CLEAN_COMMAND) $(PROGRAM_NAME)
