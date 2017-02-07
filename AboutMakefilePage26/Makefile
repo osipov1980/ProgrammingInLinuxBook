@@ -9,7 +9,9 @@ SOURCE_FILES=print_up.c main.c
 
 $(PROGRAM_NAME): $(OBJECT_FILES)
 	$(CC) $(CCFLAGS) -o $@ $^
+
 $(OBJECT_FILES): $(SOURCE_FILES)
 	$(CC) $(CCFLAGS) -c $^
+
 clean:
 	$(CLEAN) *.o $(PROGRAM_NAME)
